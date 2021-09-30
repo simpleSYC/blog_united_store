@@ -4,11 +4,11 @@
   "client_id": "8290c74ddb557693060a",
   "client_secret": "d883706f2bae4b3d778535ce5fb3b542bd2d5f9b",
   "title": "Blog of united ss",
-  "instruction": "基于GitHub issue的个人博客模板",
+  "instruction": "Welcome !",
   "server_link": "",
   "filter": {
     "creator": "all",
-    "state": "open"
+    "state": "closed"
   },
   "menu": {
     "Home Page": "./"
