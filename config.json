@@ -5,7 +5,7 @@
   "client_secret": "b10a640a04f84794dbfcfe0c24c101ec706dffef",
   "title": "Blog of u--ss",
   "instruction": "基于GitHub issue的个人博客模板",
-  "server_link": "",
+  "server_link": "https://simplesyc.github.io/blog_united_store/",
   "filter": {
     "creator": "all",
     "state": "open"
