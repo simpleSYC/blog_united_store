@@ -2,13 +2,13 @@
   "name": "simpleSYC",
   "repo": "blog_united_store",
   "client_id": "8290c74ddb557693060a",
-  "client_secret": "d883706f2bae4b3d778535ce5fb3b542bd2d5f9b",
+  "client_secret": "1ff97517b52b3397407435ac81567c0af91f884f",
   "title": "Blog of united ss",
-  "instruction": "Welcome !",
+  "instruction": "Welcome to our BLOG",
   "server_link": "",
   "filter": {
     "creator": "all",
-    "state": "closed"
+    "state": "open"
   },
   "menu": {
     "Home Page": "./"
