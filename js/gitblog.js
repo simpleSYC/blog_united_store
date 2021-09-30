@@ -415,7 +415,7 @@ var gitblog = function (config) {
         url: "https://api.github.com/repos/" + config.name + "/" + config.repo + "/issues/" + self.options.id + "/comments",
         headers: {
           Authorization: "Basic " + window.localStorage.authorize,
-          Accept: "application/vnd.github.squirrel-girl-preview, application/vnd.github.html+json",
+          Accept: "application/vnd.github.squirrel-girl-preview, application/vnd.github.v3+json",
           "Content-Type": "application/json",
         },
         data: JSON.stringify({
@@ -437,7 +437,7 @@ var gitblog = function (config) {
       $.ajax({
         type: "get",
         headers: {
-          Accept: "application/vnd.github.squirrel-girl-preview, application/vnd.github.html+json, application/x-www-form-urlencoded",
+          Accept: "application/vnd.github.squirrel-girl-preview, application/vnd.github.v3+json, application/x-www-form-urlencoded",
         },
         url: "https://api.github.com/repos/" + config.name + "/" + config.repo + "/issues/" + self.options.id + "/comments?page=" + self.options.page + "&per_page=10",
         success: function (data) {
@@ -569,7 +569,7 @@ var gitblog = function (config) {
           type: "post",
           url: "https://api.github.com/markdown",
           headers: {
-            Accept: "text/html, application/vnd.github.squirrel-girl-preview, application/vnd.github.html+json, application/x-www-form-urlencoded",
+            Accept: "text/html, application/vnd.github.squirrel-girl-preview, application/vnd.github.v3+json, application/x-www-form-urlencoded",
             "Content-Type": "text/html",
           },
           data: JSON.stringify({
@@ -622,7 +622,7 @@ var gitblog = function (config) {
       $.ajax({
         type: "get",
         headers: {
-          Accept: "application/vnd.github.squirrel-girl-preview, application/vnd.github.html+json, application/x-www-form-urlencoded",
+          Accept: "application/vnd.github.squirrel-girl-preview, application/vnd.github.v3+json, application/x-www-form-urlencoded",
         },
         url: "https://api.github.com/repos/" + config.name + "/" + config.repo + "/issues/" + self.options.id,
         success: function (data) {
