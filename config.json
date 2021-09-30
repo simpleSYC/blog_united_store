@@ -2,10 +2,10 @@
   "name": "simpleSYC",
   "repo": "blog_united_store",
   "client_id": "8290c74ddb557693060a",
-  "client_secret": "b10a640a04f84794dbfcfe0c24c101ec706dffef",
-  "title": "Blog of u--ss",
+  "client_secret": "ac58a0ff89d060417e8004c7cba50734ed661124",
+  "title": "Blog of united ss",
   "instruction": "基于GitHub issue的个人博客模板",
-  "server_link": "https://simplesyc.github.io/blog_united_store/",
+  "server_link": "https://blog-us.pages.dev",
   "filter": {
     "creator": "all",
     "state": "open"
