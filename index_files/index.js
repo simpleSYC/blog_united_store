@@ -52,6 +52,16 @@ function Load_CMP() {
     $("#" + i).append(CSS[0] + CMP[i]["file"] + CSS[1]);
     $("#" + i).append(JS[0] + CMP[i]["file"] + JS[1]);
   }
+
+  $(function () {
+    $(".head").css("opacity", "1");
+    $(".head").css("transform", "translateY(0)");
+    $(".name").css("opacity", "1");
+    $(".name").css("transform", "translateY(0)");
+    $(".main_content").css("opacity", "1");
+    $(".main_content").css("transform", "translateY(0)");
+  });
+
   Load_Dodatok();
 }
 
@@ -59,7 +69,7 @@ function Load_Dodatok() {
   let O = {
     FILE: {
       0: "js/gitblog",
-      1: "index_files/FUN/typed",
+      //      1: "index_files/FUN/typed",
     },
     JS: {
       0: '<script type="text/javascript" src="./',
@@ -88,21 +98,3 @@ let Put_logo = setTimeout(() => {
     clearInterval(Put_logo);
   }
 }, 333);
-
-$(() => {
-  $(".head").css("opacity", "1");
-  $(".head").css("transform", "translateY(0)");
-  $(".name").css("opacity", "1");
-  $(".name").css("transform", "translateY(0)");
-  $(".main_content").css("opacity", "1");
-  $(".main_content").css("transform", "translateY(0)");
-
-  $("#changerificwordspanid").typed({
-    strings: ["good", "happy", "healthy", "tall"],
-    typeSpeed: 100,
-    startDelay: 10,
-    showCursor: true,
-    shuffle: true,
-    loop: true,
-  });
-});
