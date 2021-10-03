@@ -14,11 +14,13 @@
     "Home Page": "./"
   },
   "friends": {
-    "ovaa e stranica": "https://google.com/dasd"
+    "ajdee": "https://google.com/aa",
+    "jako e": "https://google.com/bbb",
+    "strana 3": "https://google.com/cc"
   },
   "icons": {
     "Github": {
-      "icon_src": "images/github.svg",
+      "icon_src": "./GLOBAL/MEDIA/github.svg",
       "href": "https://github.com/simpleSYC",
       "hidden_img": null,
       "width": 0

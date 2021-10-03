@@ -3,7 +3,7 @@ Vue.component("headerot", {
   <div class="page_header" ></div>
   <div class="author">
     <div class="head">
-      <img src="./images/avatar.jpg" class="img-responsive img-circle" />
+      <img src="./GLOBAL/MEDIA/avatar.jpg" class="img-responsive img-circle" />
     </div>
     <h3 class="name" id="title"></h3>
     <p class="name" id="instruction"></p>

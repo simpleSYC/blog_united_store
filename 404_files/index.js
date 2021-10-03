@@ -8,7 +8,6 @@ function Load_Css() {
   let CSS_files = {
     0: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min",
     1: "./GLOBAL/CSS/common",
-    2: "./GLOBAL/CSS/home",
   };
   for (c in CSS_files) {
     let link = document.createElement("link");
@@ -29,7 +28,6 @@ function Load_Css() {
 function LOAD_GLOBAL() {
   let CMP = {
     GLOBAL_SIDE_MENY: { id: "side_meny", file: "SIDE_MENY" },
-    GLOBAL_ADDS: { id: "adds", file: "ADDS" },
     GLOBAL_FUTEROT: { id: "futerot", file: "FUTEROT" },
   };
   let CSS = ['<link rel="stylesheet" href="./GLOBAL/CMP/', '/c.css" />'];
@@ -45,27 +43,19 @@ function LOAD_GLOBAL() {
 ///
 function Load_CMP() {
   let CMP = {
+    CONTENT_404: { id: "content_404", file: "CONTENT_404" },
+
     HEADEROT: { id: "headerot", file: "HEADEROT" },
     BLOG_LASTE: { id: "blog_laste", file: "BLOG_LASTE" },
   };
-  let CSS = ['<link rel="stylesheet" href="./index_files/CMP/', '/c.css" />'];
-  let JS = ['<script type="text/javascript" src="./index_files/CMP/', '/j.js"></script>'];
+  let CSS = ['<link rel="stylesheet" href="./404_files/CMP/', '/c.css" />'];
+  let JS = ['<script type="text/javascript" src="./404_files/CMP/', '/j.js"></script>'];
   for (i in CMP) {
     EL_[i] = {};
     document.getElementById(i).innerHTML = "<" + CMP[i]["id"] + " />";
     $("#" + i).append(CSS[0] + CMP[i]["file"] + CSS[1]);
     $("#" + i).append(JS[0] + CMP[i]["file"] + JS[1]);
   }
-
-  $(function () {
-    $(".head").css("opacity", "1");
-    $(".head").css("transform", "translateY(0)");
-    $(".name").css("opacity", "1");
-    $(".name").css("transform", "translateY(0)");
-    $(".main_content").css("opacity", "1");
-    $(".main_content").css("transform", "translateY(0)");
-  });
-
   Load_Dodatok();
 }
 
@@ -82,6 +72,9 @@ function Load_Dodatok() {
   for (j in O["FILE"]) {
     $("body").append(O["JS"][0] + O["FILE"][j] + O["JS"][1]);
   }
+  setTimeout(() => {
+    $(".main").remove();
+  }, 500);
 }
 
 let Put_logo = setTimeout(() => {

@@ -45,11 +45,11 @@ function LOAD_GLOBAL() {
 ///
 function Load_CMP() {
   let CMP = {
-    HEADEROT: { id: "headerot", file: "HEADEROT" },
-    BLOG_LASTE: { id: "blog_laste", file: "BLOG_LASTE" },
+    SELECTED_TAG: { id: "selected_tag", file: "SELECTED_TAG" },
+    FOUNDED_POST: { id: "founded_post", file: "FOUNDED_POST" },
   };
-  let CSS = ['<link rel="stylesheet" href="./index_files/CMP/', '/c.css" />'];
-  let JS = ['<script type="text/javascript" src="./index_files/CMP/', '/j.js"></script>'];
+  let CSS = ['<link rel="stylesheet" href="./issue_per_label_files/CMP/', '/c.css" />'];
+  let JS = ['<script type="text/javascript" src="./issue_per_label_files/CMP/', '/j.js"></script>'];
   for (i in CMP) {
     EL_[i] = {};
     document.getElementById(i).innerHTML = "<" + CMP[i]["id"] + " />";
@@ -58,10 +58,6 @@ function Load_CMP() {
   }
 
   $(function () {
-    $(".head").css("opacity", "1");
-    $(".head").css("transform", "translateY(0)");
-    $(".name").css("opacity", "1");
-    $(".name").css("transform", "translateY(0)");
     $(".main_content").css("opacity", "1");
     $(".main_content").css("transform", "translateY(0)");
   });

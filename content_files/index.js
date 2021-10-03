@@ -8,7 +8,7 @@ function Load_Css() {
   let CSS_files = {
     0: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min",
     1: "./GLOBAL/CSS/common",
-    2: "./GLOBAL/CSS/home",
+    2: "./GLOBAL/CSS/gitment",
   };
   for (c in CSS_files) {
     let link = document.createElement("link");
@@ -45,27 +45,17 @@ function LOAD_GLOBAL() {
 ///
 function Load_CMP() {
   let CMP = {
-    HEADEROT: { id: "headerot", file: "HEADEROT" },
-    BLOG_LASTE: { id: "blog_laste", file: "BLOG_LASTE" },
+    TOPIC_HEADER: { id: "topic_header", file: "TOPIC_HEADER" },
+    SELECTED_TOPIC_CONTENT: { id: "selected_topic_content", file: "SELECTED_TOPIC_CONTENT" },
   };
-  let CSS = ['<link rel="stylesheet" href="./index_files/CMP/', '/c.css" />'];
-  let JS = ['<script type="text/javascript" src="./index_files/CMP/', '/j.js"></script>'];
+  let CSS = ['<link rel="stylesheet" href="./content_files/CMP/', '/c.css" />'];
+  let JS = ['<script type="text/javascript" src="./content_files/CMP/', '/j.js"></script>'];
   for (i in CMP) {
     EL_[i] = {};
     document.getElementById(i).innerHTML = "<" + CMP[i]["id"] + " />";
     $("#" + i).append(CSS[0] + CMP[i]["file"] + CSS[1]);
     $("#" + i).append(JS[0] + CMP[i]["file"] + JS[1]);
   }
-
-  $(function () {
-    $(".head").css("opacity", "1");
-    $(".head").css("transform", "translateY(0)");
-    $(".name").css("opacity", "1");
-    $(".name").css("transform", "translateY(0)");
-    $(".main_content").css("opacity", "1");
-    $(".main_content").css("transform", "translateY(0)");
-  });
-
   Load_Dodatok();
 }
 
@@ -83,6 +73,22 @@ function Load_Dodatok() {
     $("body").append(O["JS"][0] + O["FILE"][j] + O["JS"][1]);
   }
 }
+
+(function () {
+  setTimeout(function () {
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [
+          ["$", "$"],
+          ["\\(", "\\)"],
+        ],
+      },
+    });
+  }, 500);
+  setInterval(function () {
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+  }, 500);
+})();
 
 let Put_logo = setTimeout(() => {
   console.log(" ova bese === setInterval   ovXXX ne e da se stave i ova da cita od stadic url testirano.. mora prvo da se izbrisat site tie errore");

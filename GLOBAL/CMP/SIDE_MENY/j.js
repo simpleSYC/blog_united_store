@@ -2,7 +2,7 @@ Vue.component("side_meny", {
   template: `<div>
   <label class="navi-button">MENU</label>
   <input type="text" class="search-input" placeholder="search content" />
-  <img src="./images/search.svg" class="search" />
+  <img src="./GLOBAL/MEDIA/search.svg" class="search" />
   <ul class="main-navication">
     <ul id="menu"></ul>
     <hr />
@@ -18,11 +18,11 @@ var store = new Vuex.Store({
 });
 
 var signqqee = new Vue({
-  el: "#SIDE_MENY",
+  el: "#GLOBAL_SIDE_MENY",
   store: store,
 });
 
-EL_["SIDE_MENY"] = {
-  DIV: document.getElementById("SIDE_MENY"),
+EL_["GLOBAL_SIDE_MENY"] = {
+  DIV: document.getElementById("GLOBAL_SIDE_MENY"),
   eqweqw: document.getElementById("AAsdas"),
 };
