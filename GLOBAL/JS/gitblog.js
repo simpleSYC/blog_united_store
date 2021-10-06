@@ -675,6 +675,7 @@ var gitblog = function (config) {
         },
       });
     },
+
     addItem: function (data) {
       document.getElementById("issue-list").innerHTML = "";
       for (var i in data) {
@@ -684,10 +685,8 @@ var gitblog = function (config) {
         }
         data[i].body = data[i].body.replace(/<.*?>/g, "");
         data[i].created_at = self.utc2localTime(data[i].created_at);
-
-        console.log(data[i].created_at);
-        document.getElementById("issue-list").innerHTML =
-          "<li><p class='d_a_t_e'>" +
+        document.getElementById("issue-list").innerHTML +=
+          '<li><p class="date">' +
           data[i].created_at +
           '</p><h4 class="title"><a href="content.html?id=' +
           data[i].number +
