@@ -641,7 +641,7 @@ var gitblog = function (config) {
           document.getElementById("content").innerHTML = data.body_html;
           var labels = document.getElementById("labels");
           for (var i in data.labels) {
-            labels.innerHTML += '<a href="issue_per_label.html?label=' + data.labels[i].name + '"># ' + data.labels[i].name + "</a>";
+            labels.innerHTML += '<a href="./issue_per_label.html?label=' + data.labels[i].name + '"># ' + data.labels[i].name + "</a>";
           }
           labels.innerHTML += '<div style="float:right;cursor:pointer" id="' + self.options.id + '"></div>';
           article.comments.init();
@@ -670,7 +670,7 @@ var gitblog = function (config) {
         url: "https://api.github.com/repos/" + config.name + "/" + config.repo + "/labels",
         success: function (data) {
           for (var i in data) {
-            document.getElementById("tags").innerHTML += '<a href="issue_per_label.html?label=' + data[i].name + '">' + data[i].name + "</a>";
+            document.getElementById("tags").innerHTML += '<a href="./issue_per_label.html?label=' + data[i].name + '">' + data[i].name + "</a>";
           }
         },
       });
@@ -681,14 +681,14 @@ var gitblog = function (config) {
       for (var i in data) {
         var labels_content = "";
         for (var j in data[i].labels) {
-          labels_content += "<li><a href=issue_per_label.html?label=" + data[i].labels[j].name + ">" + data[i].labels[j].name + "</a></li>";
+          labels_content += "<li><a href='./issue_per_label.html?label=" + data[i].labels[j].name + ">" + data[i].labels[j].name + "</a></li>";
         }
         data[i].body = data[i].body.replace(/<.*?>/g, "");
         data[i].created_at = self.utc2localTime(data[i].created_at);
         document.getElementById("issue-list").innerHTML +=
           '<li><p class="date">' +
           data[i].created_at +
-          '</p><h4 class="title"><a href="content.html?id=' +
+          '</p><h4 class="title"><a href="./content.html?id=' +
           data[i].number +
           '">' +
           data[i].title +
@@ -850,7 +850,7 @@ var gitblog = function (config) {
 
       $(".search-input").bind("keypress", function (event) {
         if (event.keyCode == "13" && $(".search-input").val() != "") {
-          window.location.href = "issue_per_label.html?q=" + $(".search-input").val();
+          window.location.href = "./issue_per_label.html?q=" + $(".search-input").val();
         }
       });
 

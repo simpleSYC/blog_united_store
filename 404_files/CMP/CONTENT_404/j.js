@@ -36,6 +36,6 @@ EL_["CONTENT_404"] = {
 
 $("#src").bind("keypress", function (event) {
   if (event.keyCode == "13" && $("#src").val() != "") {
-    window.location.href = "issue_per_label.html?q=" + $("#src").val();
+    window.location.href = "./issue_per_label.html?q=" + $("#src").val();
   }
 });
