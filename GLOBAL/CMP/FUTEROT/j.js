@@ -17,9 +17,10 @@ Vue.component("futerot", {
       <a class="TAGS_TILE_DIV">HELPFUL LINKS</a>
       <hr />
       <div id="Links_futerot">
-        <a title="https://www.w3schools.com/html/" onclick='window.open(this.title,"_blank")' >jas sum linsko</a>
-        <a title="https://www.w3schools.com/html/" onclick='window.open(this.title,"_blank")' >jas sum linsko</a>
-        <a title="https://www.w3schools.com/html/" onclick='window.open(this.title,"_blank")' >jas sum linsko</a>
+        <a title="https://united-store.pages.dev" onclick='window.open(this.title,"_blank")' >ofilcial website</a>
+        <a title="https://united-store.pages.dev/FAQ" onclick='window.open(this.title,"_blank")' >FAQ</a>
+        <a title="https://shop.united-store.pages.dev" onclick='window.open(this.title,"_blank")' >mylinks</a>
+        <a title="https://faq.united-store.pages.dev" onclick='window.open(this.title,"_blank")' >google</a>
       </div>
     </div>
     </div>

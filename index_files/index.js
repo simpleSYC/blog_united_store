@@ -1,14 +1,27 @@
 const EL_ = {
-  CROS_URL: "https://cors-website.herokuapp.com/",
-  SVG: {},
+  SVG: {
+    Project: "united-store",
+    SET_LOGO: function () {
+      setTimeout(() => {
+        let logo_svg = document.getElementById("futer_logo_svg");
+        if (!logo_svg.innerHTML) {
+          if (EL_["SVG"][this.Project]) {
+            logo_svg.innerHTML = EL_["SVG"][this.Project];
+            clearInterval(EL_["SVG"].SET_LOGO());
+          }
+        }
+      }, 333);
+    },
+  },
 };
 
 Load_Css();
 function Load_Css() {
   let CSS_files = {
-    0: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min",
-    1: "./GLOBAL/CSS/common",
-    2: "./GLOBAL/CSS/home",
+    0: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min",
+    1: "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min",
+    2: "./GLOBAL/CSS/common",
+    3: "./GLOBAL/CSS/home",
   };
   for (c in CSS_files) {
     let link = document.createElement("link");
@@ -72,32 +85,17 @@ function Load_CMP() {
 function Load_Dodatok() {
   let O = {
     FILE: {
-      0: "GLOBAL/JS/gitblog",
+      0: "./GLOBAL/JS/gitblog",
+      1: "https://static-data.pages.dev/media/" + EL_["SVG"]["Project"] + "/svg",
     },
     JS: {
-      0: '<script type="text/javascript" src="./',
+      0: '<script type="text/javascript" src="',
       1: '.js"></script>',
     },
   };
   for (j in O["FILE"]) {
+    console.log(O["JS"][0] + O["FILE"][j] + O["JS"][1]);
     $("body").append(O["JS"][0] + O["FILE"][j] + O["JS"][1]);
   }
+  EL_["SVG"].SET_LOGO();
 }
-
-let Put_logo = setTimeout(() => {
-  console.log(" ova bese === setInterval   ovXXX ne e da se stave i ova da cita od stadic url testirano.. mora prvo da se izbrisat site tie errore");
-  if (EL_["SVG"]["united-store"] != undefined) {
-    if (EL_["SIDEBAR"]["united_store_logo"].innerHTML != EL_["SVG"]["united-store"]) {
-      EL_["SIDEBAR"]["united_store_logo"].innerHTML = EL_["SVG"]["united-store"];
-    }
-  }
-  if (EL_["SVG"]["sphera"] != undefined) {
-    if (EL_["SIDEBAR"]["store_logo"].innerHTML != EL_["SVG"]["sphera"]) {
-      EL_["SIDEBAR"]["store_logo"].innerHTML = EL_["SVG"]["sphera"];
-    }
-  }
-
-  if (EL_["SVG"]["united-store"] && EL_["SVG"]["sphera"]) {
-    clearInterval(Put_logo);
-  }
-}, 333);

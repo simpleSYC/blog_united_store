@@ -62,5 +62,3 @@ EL_["SELECTED_TOPIC_CONTENT"] = {
     this.for_delete.remove();
   },
 };
-
-EL_["SELECTED_TOPIC_CONTENT"].preset();

@@ -1,6 +1,18 @@
 const EL_ = {
-  CROS_URL: "https://cors-website.herokuapp.com/",
-  SVG: {},
+  SVG: {
+    Project: "united-store",
+    SET_LOGO: function () {
+      setTimeout(() => {
+        let logo_svg = document.getElementById("futer_logo_svg");
+        if (!logo_svg.innerHTML) {
+          if (EL_["SVG"][this.Project]) {
+            logo_svg.innerHTML = EL_["SVG"][this.Project];
+            clearInterval(EL_["SVG"].SET_LOGO());
+          }
+        }
+      }, 333);
+    },
+  },
 };
 
 Load_Css();
@@ -47,6 +59,7 @@ function Load_CMP() {
   let CMP = {
     TOPIC_HEADER: { id: "topic_header", file: "TOPIC_HEADER" },
     SELECTED_TOPIC_CONTENT: { id: "selected_topic_content", file: "SELECTED_TOPIC_CONTENT" },
+    BLOG_LASTE: { id: "blog_laste", file: "BLOG_LASTE" },
   };
   let CSS = ['<link rel="stylesheet" href="./content_files/CMP/', '/c.css" />'];
   let JS = ['<script type="text/javascript" src="./content_files/CMP/', '/j.js"></script>'];
@@ -62,16 +75,18 @@ function Load_CMP() {
 function Load_Dodatok() {
   let O = {
     FILE: {
-      0: "GLOBAL/JS/gitblog",
+      0: "./GLOBAL/JS/gitblog",
+      1: "https://static-data.pages.dev/media/" + EL_["Project"] + "/svg",
     },
     JS: {
-      0: '<script type="text/javascript" src="./',
+      0: '<script type="text/javascript" src="',
       1: '.js"></script>',
     },
   };
   for (j in O["FILE"]) {
     $("body").append(O["JS"][0] + O["FILE"][j] + O["JS"][1]);
   }
+  EL_["SVG"].SET_LOGO();
 }
 
 (function () {
@@ -90,20 +105,8 @@ function Load_Dodatok() {
   }, 500);
 })();
 
-let Put_logo = setTimeout(() => {
-  console.log(" ova bese === setInterval   ovXXX ne e da se stave i ova da cita od stadic url testirano.. mora prvo da se izbrisat site tie errore");
-  if (EL_["SVG"]["united-store"] != undefined) {
-    if (EL_["SIDEBAR"]["united_store_logo"].innerHTML != EL_["SVG"]["united-store"]) {
-      EL_["SIDEBAR"]["united_store_logo"].innerHTML = EL_["SVG"]["united-store"];
-    }
-  }
-  if (EL_["SVG"]["sphera"] != undefined) {
-    if (EL_["SIDEBAR"]["store_logo"].innerHTML != EL_["SVG"]["sphera"]) {
-      EL_["SIDEBAR"]["store_logo"].innerHTML = EL_["SVG"]["sphera"];
-    }
-  }
-
-  if (EL_["SVG"]["united-store"] && EL_["SVG"]["sphera"]) {
-    clearInterval(Put_logo);
-  }
-}, 333);
+window.onload = () =>
+  setTimeout(() => {
+    EL_["BLOG_LASTE"]["DIV"].remove();
+    EL_["SELECTED_TOPIC_CONTENT"].preset();
+  }, 1000);

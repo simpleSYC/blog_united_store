@@ -98,9 +98,8 @@ var gitblog = function (config) {
       }
       if (Object.keys(config.friends).length != 0) {
         var menu_friend = document.getElementById("friends");
-        menu_friend.innerHTML = '<li><text style="font-zise:14px"><span style="color: white;transform:translateX(4px)">linkoveto--33：</span></text></li>';
         for (var name in config.friends) {
-          menu_friend.innerHTML += "<li><a href=" + config.friends[name] + ' target="_blank"><span>' + name + "</span></a></li>";
+          menu_friend.innerHTML += "<li><a href=" + config.friends[name] + ' target="_self"><span>' + name + "</span></a></li>";
         }
       }
       $(".search-input").on("blur", function () {
@@ -111,6 +110,7 @@ var gitblog = function (config) {
 
   var Icon = function (options, name, left) {
     this.icon_src = options.icon_src;
+    this.LOGO_CSS = options.LOGO_CSS;
     this.href = options.href;
     this.hidden_img = options.hidden_img;
     this.width = options.width;
@@ -121,21 +121,9 @@ var gitblog = function (config) {
   Icon.prototype = {
     init: function () {
       var icon = this;
-      if (icon.href != undefined && icon.href != null) {
-        document.getElementById("div_" + icon.name).innerHTML +=
-          '<a target="_blank" title="' +
-          icon.name +
-          '" id="icon_' +
-          icon.name +
-          '" href="' +
-          icon.href +
-          '"><img src="' +
-          icon.icon_src +
-          '" style="width:50px;margin-left:10px;margin-right:10px"></a>';
-      } else {
-        document.getElementById("div_" + icon.name).innerHTML +=
-          '<img src="' + icon.icon_src + '" title="' + icon.name + '" id="icon_' + icon.name + '" style="width:50px;margin-left:10px;margin-right:10px;cursor:pointer">';
-      }
+
+      document.getElementById("div_" + icon.name).innerHTML += '<svg id="futer_logo_svg" style="' + icon.LOGO_CSS + '"></svg> ';
+
       if (icon.hidden_img != undefined && icon.hidden_img != null) {
         document.getElementById("div_" + icon.name).innerHTML +=
           '<img id="' +
@@ -172,30 +160,26 @@ var gitblog = function (config) {
     this.page = new Pages();
     this.icons = [];
     this.icon_num = 0;
-    this.content = 'Powered by <a href="https://github.com/imuncle/gitblog" target="_blank" style="color: aquamarine;text-decoration:none;border-bottom: 1px solid #79f8d4;">gitblog</a>';
+    this.content = "<p> " + EL_["Project"] + ' <i style="font-size:16px">&#169;</i> ' + new Date().getFullYear() + "</p>";
   };
 
   Footer.prototype = {
     showIcon: function () {
       var footer = this;
       for (var i in config.icons) {
-        if (config.icons[i].icon_src != undefined && config.icons[i].icon_src != null) {
-          document.getElementById("icon").innerHTML += '<div style="padding-inline-start: 0;margin: 0" id="div_' + i + '"></div>';
-        }
+        document.getElementById("icon").innerHTML += '<div style="' + config.icons[i]["FRAME_CSS"] + '" id="div_' + i + '"></div>';
       }
       for (var i in config.icons) {
-        if (config.icons[i].icon_src != undefined && config.icons[i].icon_src != null) {
-          var left = Object.keys(config.icons).length * 35 - 70 * footer.icon_num + config.icons[i].width / 2 - 35;
-          var icon = new Icon(config.icons[i], i, left);
-          icon.init();
-          footer.icons.push(icon);
-          footer.icon_num++;
-        }
+        var left = Object.keys(config.icons).length * 35 - 70 * footer.icon_num + config.icons[i].width / 2 - 35;
+        var icon = new Icon(config.icons[i], i, left);
+        icon.init();
+        footer.icons.push(icon);
+        footer.icon_num++;
       }
     },
     show: function () {
-      document.getElementById("footer").innerHTML += this.content;
       this.showIcon();
+      document.getElementById("footer").innerHTML += this.content;
     },
   };
 
@@ -681,7 +665,7 @@ var gitblog = function (config) {
       for (var i in data) {
         var labels_content = "";
         for (var j in data[i].labels) {
-          labels_content += "<li><a href='./issue_per_label.html?label=" + data[i].labels[j].name + ">" + data[i].labels[j].name + "</a></li>";
+          labels_content += "<li><a href='./issue_per_label.html?label=" + data[i].labels[j].name + "'>" + data[i].labels[j].name + "</a></li>";
         }
         data[i].body = data[i].body.replace(/<.*?>/g, "");
         data[i].created_at = self.utc2localTime(data[i].created_at);

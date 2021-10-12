@@ -1,11 +1,11 @@
 Vue.component("side_meny", {
   template: `<div>
   <label class="navi-button">MENU</label>
-  <input type="text" class="search-input" placeholder="search content" />
+  <input type="text" class="search-input" />
   <img src="./GLOBAL/MEDIA/search.svg" class="search" />
   <ul class="main-navication">
     <ul id="menu"></ul>
-    <hr />
+    <hr>
     <ul id="friends"></ul>
   </ul>
   </div>`,

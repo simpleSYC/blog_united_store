@@ -1,4 +1,9 @@
 /* Style the top navigation bar */
+#GLOBAL_FUTEROT {
+  z-index: 1;
+  position: relative;
+}
+
 .footer {
   background: #2c3e50;
   padding: 30px 15px;
@@ -49,6 +54,7 @@
   cursor: pointer;
   color: cornflowerblue;
   font-size: 17px;
+  padding: 5px;
 }
 
 #icon {

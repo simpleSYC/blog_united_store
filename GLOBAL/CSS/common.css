@@ -130,7 +130,7 @@ ul.pagination li a:hover:not(.active) {
   position: relative;
   transition: all 0.4s;
   position: fixed;
-  right: 10px;
+  right: 15px;
   top: 57px;
   z-index: -1;
 }
